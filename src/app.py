@@ -14,7 +14,7 @@ client_secret = os.getenv('SPOTIFY_CLIENT_SECRET')
 
 spotify = sp.Spotify(auth_manager=SpotifyClientCredentials(client_id=client_id, client_secret=client_secret))
 
-def get_artist_id_by_name(artist_name : str) -> (Any | None):
+def get_artist_id_by_name(artist_name : str) -> (dict | None):
     result = spotify.search(q='artist:' + artist_name, type='artist', limit=1)
     if result['artists']['items']:
         return result['artists']['items'][0]['id']
